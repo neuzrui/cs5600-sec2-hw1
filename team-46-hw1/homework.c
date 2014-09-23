@@ -30,6 +30,20 @@ extern void  *proc2;
 extern void  *proc2_stack;
 extern void **vector;
 
+int load_prog(const char* prog_name, void* location)
+{
+    FILE* fp = NULL;
+    if ((fp = fopen(prog_name, "rb")) == NULL) {
+        return -1;
+    }
+    int read = 0;
+    while (!feof(fp)) {
+        read = fread(location + read, 1, 4096, fp);
+    }
+    fclose(fp);
+    
+    return 0;
+}
 
 /***********************************************/
 /********* Your code starts here ***************/
@@ -51,9 +65,7 @@ extern void **vector;
  */
 void print(char *line)
 {
-    /*
-     * Your code goes here. 
-     */
+    printf(line);
 }
 
 void q1(void)
@@ -149,25 +161,47 @@ void q2(void)
  *   process 1
  */
 
+void* main_stack = 0;
+
 void yield12(void)		/* vector index = 3 */
 {
-    /* Your code here */
+    do_switch((stack_ptr_t*) &proc1_stack, proc2_stack);
 }
 
 void yield21(void)		/* vector index = 4 */
 {
-    /* Your code here */
+    do_switch((stack_ptr_t*) &proc2_stack, proc1_stack);
 }
 
 void uexit(void)		/* vector index = 5 */
 {
-    /* Your code here */
+    do_switch(0, main_stack);
 }
 
 void q3(void)
 {
-    /* Your code here */
+    /* init vector */
+    vector[0] = print;
+    vector[3] = yield12;
+    vector[4] = yield21;
+    vector[5] = uexit;
+
     /* load q3prog1 into process 1 and q3prog2 into process 2 */
+    if (load_prog("q3prog1", proc1) == -1) {
+        printf("[q3]: can't find q3prog1 for loading!\n");
+        return;
+    }
+    if (load_prog("q3prog2", proc2) == -1) {
+        printf("[q3]: can't find q3prog2 for loading!\n");
+        return;
+    }
+
+    /* setup stack for both process1 and process2 */
+    proc1_stack = setup_stack((stack_ptr_t) proc1_stack, proc1);
+    proc2_stack = setup_stack((stack_ptr_t) proc2_stack, proc2);
+
+    /* then switch to process 1 */
+    do_switch((stack_ptr_t*) &main_stack, proc1_stack);
 }
 
 
