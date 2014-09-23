@@ -65,7 +65,7 @@ int load_prog(const char* prog_name, void* location)
  */
 void print(char *line)
 {
-    printf(line);
+    printf("%s", line);
 }
 
 void q1(void)
@@ -74,6 +74,19 @@ void q1(void)
      * Your code goes here. Initialize the vector table, load the
      * code, and go.
      */
+    // initialize the vector first
+    vector[0] = print;
+    
+    // load the excecutable file
+    int result = 0;
+    result = load_prog("q1prog", proc1)
+    if (result == 0) {
+        return;
+    }
+    else{
+        int (*prog) (void) = proc1;
+        (*prog)();
+    }
 }
 
 
