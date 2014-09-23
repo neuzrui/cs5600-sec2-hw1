@@ -78,12 +78,9 @@ void q1(void)
     vector[0] = print;
     
     // load the excecutable file
-    int result = 0;
-    result = load_prog("q1prog", proc1)
+    int result = -1;
+    result = load_prog("q1prog", proc1);
     if (result == 0) {
-        return;
-    }
-    else{
         int (*prog) (void) = proc1;
         (*prog)();
     }
