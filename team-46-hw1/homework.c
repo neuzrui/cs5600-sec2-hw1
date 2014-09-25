@@ -159,10 +159,14 @@ void q2(void)
         char *command = strtok(buf, " ");
 
         /* if zero words, continue */
-        if(command == "\n" || command == " "){
+        if(*command == "\n" || *command == " "){
             continue;
         }
-        printf("%s", command);
+        if(*command == "quit"){
+            break;
+        }
+        
+        
         /*
         if(command)
         
