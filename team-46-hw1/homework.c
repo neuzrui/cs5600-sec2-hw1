@@ -148,7 +148,7 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[1024] = {0};
-    args = malloc(1024);
+    args = malloc(size * sizeof(*args));
 
     while (1) {
         /* get a line */
