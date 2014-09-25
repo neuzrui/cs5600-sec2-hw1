@@ -148,7 +148,6 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[1024] = {0};
-    char *token = NULL;
     args = malloc(10 * 20);
 
     while (1) {
@@ -163,6 +162,7 @@ void q2(void)
         if(command == "\n" || command = " "){
             continue;
         }
+        printf("%s", command);
         /*
         if(command)
         
