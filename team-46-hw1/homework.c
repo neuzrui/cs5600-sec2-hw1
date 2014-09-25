@@ -160,7 +160,7 @@ void q2(void)
         strtok(buf, "\n");
         
         
-        const char *token = NULL;
+        char *token = NULL;
         token = strtok(buf, " ");
         
         /* if zero words, continue */
