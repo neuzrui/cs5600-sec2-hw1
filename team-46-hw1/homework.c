@@ -146,7 +146,7 @@ void q2(void)
     while (1) {
         /* get a line */
         readline(buf, 4096);
-        printf("%s", buf)
+        printf("%s", buf);
         /* split it into words */
         
         
