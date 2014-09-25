@@ -78,8 +78,7 @@ void q1(void)
     vector[0] = print;
     
     // load the excecutable file
-    int result = -1;
-    result = load_prog("q1prog", proc1);
+    int result = load_prog("q1prog", proc1);
     if (result == 0) {
         int (*prog) (void) = proc1;
         (*prog)();
@@ -133,6 +132,9 @@ char *getarg(int i)		/* vector index = 2 */
     /*
      * Your code here. 
      */
+    if(i < 1024){
+        return args[i+1];
+    }
     return NULL;
 }
 
@@ -158,7 +160,6 @@ void q2(void)
         
         /* strip the \n before tokenizing the input */
         strtok(buf, "\n");
-        
         
         char *token = NULL;
         token = strtok(buf, " ");
@@ -186,38 +187,10 @@ void q2(void)
             token = strtok(NULL, " ");
             args[i] = token;
         }
-        
-        printf("%s", args[0]);
-        printf("%s", args[1]);
-        
-        
-        
-
-        
-        
-        
-        
-        
-        /*
-        if(command)
-        
-        int i = 0;
-        while((token = strtok(NULL, " ")) != NULL){
-            args[i++] = token;
-        }
-        
-        printf("%s", args[1]);
-        */
-        
- 
-        
-
-        
-        
 	
-	
-	/* make sure 'getarg' can find the remaining words */
-	/* load and run the command */
+        /* make sure 'getarg' can find the remaining words */
+        /* load and run the command */
+        
     }
     /*
      * Note that you should allow the user to load an arbitrary command,
