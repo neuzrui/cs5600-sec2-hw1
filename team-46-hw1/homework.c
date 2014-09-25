@@ -157,14 +157,13 @@ void q2(void)
         printf("%s", buf);
         /* split it into words */
         
-        buf = strtok(buf, "\n");
+        token = strtok(buf, "\n");
+        token2 = strtok(buf, " ");
+        token3 = strtok(buf, " ");
         
-        int i = 0;
-        while((token = strtok(buf, " ")) != NULL){
-            args[i++] = token;
-        }
-        printf("%s", args[0]);
-        printf("%s", args[1]);
+        printf("%s", token);
+        printf("%s", token2);
+        printf("%s", token3);
 
         
         
