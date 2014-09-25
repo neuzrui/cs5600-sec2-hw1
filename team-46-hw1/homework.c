@@ -149,11 +149,11 @@ void q2(void)
     
     char buf[1024] = {0};
     char *token = NULL;
-    args = malloc(1024);
+    args = malloc(10 * 20);
 
     while (1) {
         /* get a line */
-        readline(buf, 4096);
+        readline(buf, 1024);
         printf("%s", buf);
         /* split it into words */
         
