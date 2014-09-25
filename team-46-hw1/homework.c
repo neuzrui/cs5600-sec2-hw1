@@ -146,6 +146,7 @@ void q2(void)
     
     char buf[4096] = {0};
     char *tokens = NULL;
+    args = malloc(20*10);
 
     while (1) {
         /* get a line */
@@ -157,7 +158,7 @@ void q2(void)
         
         args[0] = tokens;
         
-        printf("%s", args[0][0]);
+        printf("%s", args[0]);
         
         
 	/* if zero words, continue */
