@@ -148,7 +148,7 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[1024] = {0};
-    args = malloc(10 * 20);
+    args = malloc(1024);
 
     while (1) {
         /* get a line */
@@ -160,13 +160,24 @@ void q2(void)
         strtok(buf, "\n");
         
         /* first word should be the command */
-        char *command = NULL;
-        command = strtok(buf, " ");
-
+        char *token = NULL;
+        token = strtok(buf, " ");
+        
         /* if zero words, continue */
-        if(command == NULL){
+        if(token == NULL){
             continue;
         }
+
+        int i = 0;
+        args[0] = token;
+        
+        for (int i = 1; i < 1024; i ++) {
+            token = strtok(token, " ");
+            args[i] = token;
+        }
+        
+        
+
         
         /* if first word is "quit", break */
       
