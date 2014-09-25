@@ -122,7 +122,10 @@ void readline(char *buf, int len) /* vector index = 1 */
     }
 }
 
-/* args stores all the commands and their arguments from the command line*/
+/* 
+ * args is a pointer to the array that stores all the commands and
+ * their arguments from the command line
+ */
 char **args = NULL;
 
 char *getarg(int i)		/* vector index = 2 */
@@ -145,7 +148,7 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[4096] = {0};
-    char *tokens = NULL;
+    char *token = NULL;
     args = malloc(20*10);
 
     while (1) {
@@ -154,11 +157,14 @@ void q2(void)
         printf("%s", buf);
         /* split it into words */
         
-        tokens = strtok(buf, " ");
+        token = strsep(&buf, "\n");
         
-        args[0] = tokens;
+        //char *command = strsep(token, " ");
+        //char *argv = strsep(token " ");
         
-        printf("%s", args[0]);
+        //args[0] = command;
+        
+        printf("%s", token);
         
         
 	/* if zero words, continue */
