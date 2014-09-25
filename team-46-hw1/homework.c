@@ -148,7 +148,7 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[1024] = {0};
-    args = malloc(10 * sizeof(*args));
+    args = malloc(1024);
 
     while (1) {
         /* get a line */
@@ -172,7 +172,10 @@ void q2(void)
         args[i] = token;
         i++;
         for ( ; i < 1024; i ++) {
-            token = strtok(token, " ");
+            if(token == NULL) {
+                break;
+            }
+            token = strtok(NULL, " ");
             args[i] = token;
         }
         
