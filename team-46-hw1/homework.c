@@ -158,14 +158,13 @@ void q2(void)
         /* split it into words */
         
         char *command = strtok(buf, " ");
-        printf("%s", command);
 
-        
         /* if zero words, continue */
-        /*
-        if(command == ""){
+        if(command == "\n" || command = " "){
             continue;
         }
+        /*
+        if(command)
         
         int i = 0;
         while((token = strtok(NULL, " ")) != NULL){
