@@ -156,15 +156,24 @@ void q2(void)
         printf("%s", buf);
         /* split it into words */
         
+        /* strip the \n before tokenizing the input */
+        strtok(buf, "\n");
+        
+        /* first word should be the command */
         char *command = strtok(buf, " ");
+        int i = 0;
+        args[0] = command;
 
         /* if zero words, continue */
-        if(*command == "\n" || *command == " "){
+        if(command == NULL){
             continue;
         }
-        if(*command == "quit"){
+        
+        /* if first word is "quit", break */
+        if(!strcmp(*command , "quit")){
             break;
         }
+        
         
         
         /*
@@ -184,7 +193,7 @@ void q2(void)
         
         
 	
-	/* if first word is "quit", break */
+	
 	/* make sure 'getarg' can find the remaining words */
 	/* load and run the command */
     }
