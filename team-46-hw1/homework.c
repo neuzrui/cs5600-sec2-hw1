@@ -159,8 +159,8 @@ void q2(void)
         /* strip the \n before tokenizing the input */
         strtok(buf, "\n");
         
-        /* first word should be the command */
-        char *token = NULL;
+        
+        const char *token = NULL;
         token = strtok(buf, " ");
         
         /* if zero words, continue */
@@ -168,8 +168,16 @@ void q2(void)
             continue;
         }
 
+        /* if first word is "quit", break */
+        if(strcmp(token, "quit")){
+            break;
+        }
+        
+        /* first word should be the command */
         int i = 0;
         args[i] = token;
+        
+        /* words after the first word are arguments */
         i++;
         for ( ; i < 1024; i ++) {
             if(token == NULL) {
@@ -178,12 +186,7 @@ void q2(void)
             token = strtok(NULL, " ");
             args[i] = token;
         }
-        
-        if(!strcmp(*args[0], "quit")){
-            break;
-        }
-        
-        
+              
         printf("%s", args[0]);
         printf("%s", args[1]);
         
@@ -191,8 +194,7 @@ void q2(void)
         
 
         
-        /* if first word is "quit", break */
-      
+        
         
         
         
