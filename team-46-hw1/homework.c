@@ -169,7 +169,7 @@ void q2(void)
         }
 
         /* if first word is "quit", break */
-        if(strcmp(token, "quit")){
+        if(!strcmp(token, "quit")){
             break;
         }
         
@@ -186,7 +186,7 @@ void q2(void)
             token = strtok(NULL, " ");
             args[i] = token;
         }
-              
+        
         printf("%s", args[0]);
         printf("%s", args[1]);
         
