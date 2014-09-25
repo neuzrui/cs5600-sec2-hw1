@@ -179,6 +179,11 @@ void q2(void)
             args[i] = token;
         }
         
+        if(!strcmp(*args[0], "quit")){
+            break;
+        }
+        
+        
         printf("%s", args[0]);
         printf("%s", args[1]);
         
