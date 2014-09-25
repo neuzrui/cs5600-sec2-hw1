@@ -160,9 +160,8 @@ void q2(void)
         strtok(buf, "\n");
         
         /* first word should be the command */
-        char *command = strtok(buf, " ");
-        int i = 0;
-        args[0] = command;
+        char *command = NULL;
+        command = strtok(buf, " ");
 
         /* if zero words, continue */
         if(command == NULL){
@@ -170,9 +169,7 @@ void q2(void)
         }
         
         /* if first word is "quit", break */
-        if(!strcmp(*command , "quit")){
-            break;
-        }
+      
         
         
         
