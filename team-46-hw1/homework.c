@@ -137,9 +137,9 @@ char *getarg(int i)		/* vector index = 2 */
 void q2(void)
 {
     /* Your code goes here */
-    vector[0] = print
-    vector[1] = readline
-    vector[2] = getarg
+    vector[0] = print;
+    vector[1] = readline;
+    vector[2] = getarg;
     
     char buf[4096] = {0};
 
