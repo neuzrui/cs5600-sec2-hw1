@@ -147,23 +147,22 @@ void q2(void)
     vector[1] = readline;
     vector[2] = getarg;
     
-    char **buf = NULL;
+    char buf[1024] = {0};
     char *token = NULL;
     args = malloc(1024);
-    buf = malloc(1024);
 
     while (1) {
         /* get a line */
-        readline(buf, 1024);
+        readline(buf, 4096);
         printf("%s", buf);
         /* split it into words */
         
-        token = strsep(buf, "\n");
+        token = strtok(buf, "\n");
         
         //char *command = strsep(token, " ");
         //char *argv = strsep(token " ");
         
-        //args[0] = command;
+       // args[0] = command;
         
         printf("%s", token);
         
