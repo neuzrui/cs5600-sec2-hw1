@@ -158,16 +158,27 @@ void q2(void)
         /* split it into words */
         
         token = strtok(buf, "\n");
-        char *token2 = strtok(buf, " ");
-        char *token3 = strtok(buf, " ");
         
-        printf("%s", token);
-        printf("%s", token2);
-        printf("%s", token3);
+        /* if zero words, continue */
+        if(*token == ""){
+            continue;
+        }
+        
+        int i = 0;
+        while((token = strtok(NULL, " ")) != NULL){
+            args[i++] = token;
+        }
+        
+        printf("%s", args[0]);
+        printf("%s", args[1]);
+        
+        
+ 
+        
 
         
         
-	/* if zero words, continue */
+	
 	/* if first word is "quit", break */
 	/* make sure 'getarg' can find the remaining words */
 	/* load and run the command */
