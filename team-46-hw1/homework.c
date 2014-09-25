@@ -122,6 +122,9 @@ void readline(char *buf, int len) /* vector index = 1 */
     }
 }
 
+/* args stores all the commands and their arguments from the command line*/
+char **args = NULL;
+
 char *getarg(int i)		/* vector index = 2 */
 {
     /*
@@ -142,12 +145,19 @@ void q2(void)
     vector[2] = getarg;
     
     char buf[4096] = {0};
+    char *tokens = NULL;
 
     while (1) {
         /* get a line */
         readline(buf, 4096);
         printf("%s", buf);
         /* split it into words */
+        
+        tokens = strtok(buf, " ");
+        
+        args[0] = tokens;
+        
+        printf("%s", args[0]);
         
         
 	/* if zero words, continue */
