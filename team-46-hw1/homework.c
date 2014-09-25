@@ -160,7 +160,7 @@ void q2(void)
         token = strtok(buf, "\n");
         
         int i = 0;
-        while((token = strtok(buf, "")) != NULL){
+        while((token = strtok(buf, " ")) != NULL){
             args[i++];
         }
         printf("%s", args[0]);
