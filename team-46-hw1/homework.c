@@ -158,8 +158,8 @@ void q2(void)
         /* split it into words */
         
         token = strtok(buf, "\n");
-        token2 = strtok(buf, " ");
-        token3 = strtok(buf, " ");
+        char *token2 = strtok(buf, " ");
+        char *token3 = strtok(buf, " ");
         
         printf("%s", token);
         printf("%s", token2);
