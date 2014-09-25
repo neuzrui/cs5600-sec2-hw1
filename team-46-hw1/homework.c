@@ -169,9 +169,9 @@ void q2(void)
         }
 
         int i = 0;
-        args[0] = token;
-        
-        for (int i = 1; i < 1024; i ++) {
+        args[i] = token;
+        i++;
+        for ( ; i < 1024; i ++) {
             token = strtok(token, " ");
             args[i] = token;
         }
