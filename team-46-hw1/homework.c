@@ -176,6 +176,10 @@ void q2(void)
             args[i] = token;
         }
         
+        printf("%s", args[0]);
+        printf("%s", args[1]);
+        
+        
         
 
         
