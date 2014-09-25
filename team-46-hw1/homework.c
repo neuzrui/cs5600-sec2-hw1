@@ -157,7 +157,7 @@ void q2(void)
         
         args[0] = tokens;
         
-        printf("%s", args[0]);
+        printf("%s", args[0][0]);
         
         
 	/* if zero words, continue */
