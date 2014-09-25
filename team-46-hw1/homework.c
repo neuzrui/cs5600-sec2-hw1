@@ -116,6 +116,10 @@ void readline(char *buf, int len) /* vector index = 1 */
     /*
      * Your code here.
      */
+    char *result = fgets(buf, len, stdin);
+    if(result != NULL){
+        buf[strlen(buf)] = '\0';
+    }
 }
 
 char *getarg(int i)		/* vector index = 2 */
@@ -133,10 +137,19 @@ char *getarg(int i)		/* vector index = 2 */
 void q2(void)
 {
     /* Your code goes here */
+    vector[0] = print
+    vector[1] = readline
+    vector[2] = getarg
+    
+    char buf[4096] = {0};
 
     while (1) {
-	/* get a line */
-	/* split it into words */
+        /* get a line */
+        readline(buf, 4096);
+        printf("%s", buf)
+        /* split it into words */
+        
+        
 	/* if zero words, continue */
 	/* if first word is "quit", break */
 	/* make sure 'getarg' can find the remaining words */
